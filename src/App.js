@@ -1,7 +1,12 @@
-
+import React from "react";
+import Header from "./Components/Header";
+import AddContacts from "./Components/AddContacts";
 function App() {
   return (
-    <h3>Hello</h3>
+    <>
+    <Header></Header>
+    <AddContacts></AddContacts>
+    </>
   );
 }
 
