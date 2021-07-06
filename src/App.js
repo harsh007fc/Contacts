@@ -1,4 +1,5 @@
 import React from "react";
+import '../src/App.css'
 import Header from "./Components/Header";
 import AddContacts from "./Components/AddContacts";
 import ContactLists from "./Components/ContactLists";
