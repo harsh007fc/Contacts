@@ -3,7 +3,7 @@ import ContactCard from './ContactCard';
 function ContactLists({contacts}) {
     console.log(contacts);
     let renderContactList = contacts.map((contact)=>{
-        return <ContactCard key={contact.id} contact={contact}/>
+        return <ContactCard  contact={contact}/>
         
     }) 
     return (
@@ -14,3 +14,6 @@ function ContactLists({contacts}) {
 }
 
 export default ContactLists
+
+
+// key={contact.id}
