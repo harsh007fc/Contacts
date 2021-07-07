@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import '../src/App.css'
+import { BrowserRouter as Router, Switch , Route } from "react-router-dom";
 import { uuid } from "uuidv4";
 import Header from "./Components/Header";
 import AddContacts from "./Components/AddContacts";
@@ -45,14 +46,21 @@ function App() {
   };
 
 
-  useEffect(()=>{
-    localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(contacts))
-  },[contacts])
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+  }, [contacts])
   return (
     <div className="ui container">
-    <Header/>
-    <AddContacts AddContactsHandler = {AddContactsHandler }/>
-    <ContactLists contacts={contacts} getContactId = {removeContactHandler}/>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/add" exact component={() => (<AddContacts AddContactsHandler={AddContactsHandler} />)} />
+          <Route path="/home" exact render={(props)=>( <ContactLists {...props} contacts={contacts} getContactId={removeContactHandler}/>)}/>
+        </Switch>
+
+        {/* <AddContacts AddContactsHandler={AddContactsHandler} /> */}
+        {/* <ContactLists contacts={contacts} getContactId={removeContactHandler} /> */}
+      </Router>
     </div>
   );
 }
