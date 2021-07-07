@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 function AddContacts({AddContactsHandler}) {
     let [name,setName] = useState(''); 
@@ -9,6 +10,7 @@ function AddContacts({AddContactsHandler}) {
     let handleMail = (e)=>{
         setMail(e.target.value);
     }
+    let history = useHistory();
 
     let handleSubmit = (e) => {
         e.preventDefault();
@@ -19,7 +21,9 @@ function AddContacts({AddContactsHandler}) {
         AddContactsHandler({name,mail})
         setName("");
         setMail("");
-        // console.log(name+" "+mail);
+        //iske liye useHistory import krna pda
+        history.push("/")
+        // console.log(history);
     }
     return (
         <>
