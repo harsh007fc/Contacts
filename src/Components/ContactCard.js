@@ -1,6 +1,6 @@
 import React from 'react'
 import user from '../Images/user.png';
-function ContactCard({contact}) {
+function ContactCard({contact,clickHandler}) {
     let {id,name,mail} = contact //kyunki ek ek krke teeno aarhe hain isliye next step mein destructuring ki
     // console.log(contact);
     return (
@@ -12,7 +12,8 @@ function ContactCard({contact}) {
                     </div>
                     <div>{mail}</div>
                 </div>
-                <i className="trash alternate outline icon" style={{color:"red",marginTop:"7px"}}></i>
+                <i className="trash alternate outline icon" style={{color:"red",marginTop:"7px"}}
+                onClick={()=>clickHandler(id)}></i>
             </div>
     )
 }
