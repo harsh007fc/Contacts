@@ -5,6 +5,7 @@ import { uuid } from "uuidv4";
 import Header from "./Components/Header";
 import AddContacts from "./Components/AddContacts";
 import ContactLists from "./Components/ContactLists";
+import ContactDetail from "./Components/ContactDetail";
 function App() {
   let LOCAL_STORAGE_KEY = "contacts"
   let [contacts,setContacts] = useState([]);
@@ -54,6 +55,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route path='/contact/:id' component={ContactDetail}/>
           <Route path="/add" exact render={(props)=>(<AddContacts {...props} AddContactsHandler={AddContactsHandler}/>)} />
           <Route path="/" exact render={(props)=>( <ContactLists {...props} contacts={contacts} getContactId={removeContactHandler}/>)}/>
         </Switch>
