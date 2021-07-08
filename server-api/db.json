@@ -1,0 +1,19 @@
+{
+    "contacts": [
+        {
+            "id": "ba62ec34-e834-4b98-b66a-e9aca7429d70",
+            "name": "optimus_07",
+            "mail": "mail@mail.com"
+        },
+        {
+            "id": "dda0fc9e-bc20-4f10-898d-3b444a5306e4",
+            "name": "Harshit Sharma",
+            "mail": "me@gmail.com"
+        },
+        {
+            "id": "95720fa3-ba32-4314-ba52-70bb123462c9",
+            "name": "Harsh",
+            "mail": "kyabe@gmail.com"
+        }
+    ]
+}
