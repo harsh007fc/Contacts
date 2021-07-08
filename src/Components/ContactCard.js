@@ -9,7 +9,7 @@ function ContactCard({contact,clickHandler}) {
             <img className="avatar ui image" src={user} alt="" />
                 <div className="content">
                     {/* //adding id to the route as below */}
-                    <Link to={`/contact/${id}`}>
+                    <Link to={{pathname:`/contact/${id}`,state:{contacts:contact}}}>
                     <div className="header">
                         {name}
                     </div>

@@ -2,19 +2,26 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import user from '../Images/user.jpg'
 
-function ContactDetail() {
+function ContactDetail(props) {
+    console.log(props);
+    let {name,mail} = props.location.state.contacts;
     return (
         <div className="main">
-            <div className="ui card center">
-                <div className="image">
+            <div className="ui card centered">
+                <div className="image center">
                     <img src={user} alt="user" />
                 </div>
                 <div className="content">
                     <div className="header">
-                        Harshit Sharma
+                        {name}
                     </div>
-                    <div className="description">Mail@mail.com</div>
+                    <div className="description">{mail}</div>
                 </div>
+            </div>
+            <div className="center-div">
+                <Link to={'/'}>
+                <button className='ui button blue center'>Back to Contact List</button>
+                </Link>
             </div>
         </div>
     )

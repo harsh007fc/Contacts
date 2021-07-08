@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ContactCard from './ContactCard';
 function ContactLists({contacts,getContactId}) {
-    console.log(contacts);
+    // console.log(contacts);
 
     let deleteContactHandler = (id)=>{
         getContactId(id);
