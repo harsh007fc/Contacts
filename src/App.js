@@ -10,40 +10,25 @@ import ContactDetail from "./Components/ContactDetail";
 function App() {
   let LOCAL_STORAGE_KEY = "contacts"
   let [contacts,setContacts] = useState([]);
-  // let contacts = [
-  //   {
-  //     id:1,
-  //     name:"Harshit Sharma",
-  //     mail:"Harsh@gmail.com"
-  //   },
-  //   {
-  //     id:2,
-  //     name:"Akshit Sharma",
-  //     mail:"Akshit@gmail.com"
-  //   },
-  //   {
-  //     id:3,
-  //     name:"Shivam Sharma",
-  //     mail:"Shivam@gmail.com"
-  //   }
-  // ]
+  
+  
   //retrieve contracts
-
   let retrieveContacts = async() => {
     let response = await api.get('/contacts');
     console.log(response.data);
     return response.data;
   }
-  let AddContactsHandler = (contact) => {
+  let AddContactsHandler = async(contact) => {
     console.log(contact);
-    setContacts([...contacts,{id:uuid(),...contact}]);
+    let request = {
+      id:uuid(),
+      ...contact
+    }
+    let response =await api.post('/contacts',request);
+    setContacts([...contacts,response.data]);
   }
 
   useEffect(()=>{
-    // let retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    // if(retriveContacts){
-    //   setContacts(retriveContacts);
-    // }
     let getAllContacts = async() => {
       let allContacts = await retrieveContacts();
       if(allContacts) setContacts(allContacts);
