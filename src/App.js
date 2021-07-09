@@ -36,7 +36,8 @@ function App() {
     getAllContacts();
   },[]);
 
-  let removeContactHandler =(id)=>{
+  let removeContactHandler =async(id)=>{
+    await api.delete(`/contacts/${id}`);
     let newContactList = contacts.filter((contact)=>{
       return contact.id != id;
     });
